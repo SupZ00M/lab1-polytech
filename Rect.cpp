@@ -58,13 +58,13 @@ int Rect::get_top(){
   return t;
 }
 int Rect::get_width(){
-  return abs(l-r);
+  return r-l;
 }
 int Rect::get_height(){
-  return abs(t-b);
+  return t-b;
 }
 int Rect::get_square(){
-  return abs((t-b)*(l-r));
+  return (t-b)*(r-l);
 }
 
 

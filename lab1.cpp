@@ -44,6 +44,7 @@
 
 #include <iostream>
 #include "Rect.hpp"
+#include "Barrel.hpp"
 using namespace std;
 int main()
 {
@@ -317,6 +318,11 @@ int main()
      */
 
     {
+        Rect r1(0,2,5,1);
+        r1.set_width(2);
+        r1.set_height(2);
+        std::cout << r1.get_square() << '\n';
+
 
     }
 
@@ -352,16 +358,18 @@ int main()
      * блоке превратиться в настоящий код и решить задачу.
      */
 
-    /* {
-        Bochka alch(...); // бочка со спиртом
-        Bochka water(...);
+     {
+        Barrel alch(96, 4); // бочка со спиртом
+        Barrel water(0,100);
+        int i=0;
 
-        while(концентрация спирта в бочке alch > 50%)
+        while(alch.alch_prop() > 0.5)
         {
-            alch.<перелить из>(water, ...);
-            water.<перелить из>(alch, ...);
-        }
-    } */
+            alch.from_barrel(1, water);
+            water.from_barrel(1, alch);
+            i++;
+        }//164
+    } 
 
     /**
      * Задание 2.2. Объект как математическая сущность.
