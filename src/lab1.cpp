@@ -45,6 +45,10 @@
 #include <iostream>
 #include "Rect.hpp"
 #include "Barrel.hpp"
+#include "Matrix.hpp"
+#include "My_string.hpp"
+#include "Text_wrapper.hpp"
+
 using namespace std;
 int main()
 {
@@ -453,12 +457,12 @@ int main()
      * Проверьте, что ваша строка корректно работает в следующих ситуациях.
      */
 
-    /* {
+    {
         MyString s1;
         MyString s2 = s1;
         MyString s3("This is my string");
         MyString s4 = s3;
-    } */
+    } 
 
     /**
      * Задание 2.4. Объект-алгоритм.
@@ -479,13 +483,13 @@ int main()
      * Примерное использование класса приведено ниже.
      */
 
-    /* {
+     {
         int line_width = 40;
         MyString input;
         input.read_line();
         TextWrapper wrapper(input, line_width);
         wrapper.print_wrapped();
-    } */
+    } 
 
     /**
      * Задание 3. Сборка проекта, Make-файлы.
