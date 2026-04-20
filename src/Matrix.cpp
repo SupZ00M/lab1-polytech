@@ -1,5 +1,8 @@
 #include "Matrix.hpp"
 #include <stdexcept>
+#include <iostream>
+#include <cstdlib> 
+using namespace std;
 
 Matrix::Matrix(int n) : rows(n), cols(n) {
     for (int i = 0; i < rows; ++i)
@@ -41,13 +44,16 @@ int Matrix::get_width() const {
     return cols;
 }
 
-void Matrix::negate() {
+Matrix Matrix::operator-() {
+    Matrix result(rows, cols, 0.0);
     for (int i = 0; i < rows; ++i)
         for (int j = 0; j < cols; ++j)
-            data[i][j] = -data[i][j];
+            result.data[i][j] = -data[i][j];
+    return result;
+        
 }
 
-void Matrix::add_in_place(Matrix& other) {
+void Matrix::operator+=(Matrix& other) {
     if (rows != other.rows || cols != other.cols)
         throw std::runtime_error("add_in_place: rows != other.rows || cols != other.cols");
     for (int i = 0; i < rows; ++i)
@@ -55,7 +61,7 @@ void Matrix::add_in_place(Matrix& other) {
             data[i][j] += other.data[i][j];
 }
 
-Matrix Matrix::multiply(Matrix& other) {
+Matrix Matrix::operator*(Matrix& other) {
     if (cols != other.rows)
         throw std::runtime_error("multiply: cols != other.rows");
     Matrix result(rows, other.cols, 0.0);
@@ -76,4 +82,12 @@ Matrix& Matrix::operator=(const Matrix& other) {
         for (int j = 0; j < cols; ++j)
             data[i][j] = other.data[i][j];
     return *this;
+}
+void Matrix::print() {
+    for (int i = 0; i < rows; ++i){
+        cout << "|";
+        for (int j = 0; j < cols; ++j)
+            cout << data[i][j] << "|";
+    cout << endl;
+    }
 }

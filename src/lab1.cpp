@@ -410,6 +410,19 @@ int main()
      */
 
     {
+        Matrix F(2);
+        Matrix N(2,2,0);
+        N.set(0,1,1);
+        N.set(1,0,1);
+        N.set(0,0,1);
+        int n = 7;
+        for (int i=0; i<n; ++i){
+            F=F*N;
+        }
+        cout<< "Fibonachi F= " << F.get(0,0) << " for n= "<< n << endl;
+
+
+        
 
     }
 
@@ -450,6 +463,12 @@ int main()
      */
 
     {
+        MyString s("Cogito ergo sum");
+        s.set(1,'c');
+        MyString n;
+        n.read_line();
+        s.print();
+        n.print();
 
     }
 

@@ -19,11 +19,12 @@ public:
     int get_height() const;
     int get_width() const;
 
-    void negate();
-    void add_in_place(Matrix& other);
-    Matrix multiply(Matrix& other);
+    Matrix operator-();
+    void operator+=(Matrix& other);
+    Matrix operator*(Matrix& other);
 
     Matrix& operator=(const Matrix& other);
+     void print();
 };
 
 #endif

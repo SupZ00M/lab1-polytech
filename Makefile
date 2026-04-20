@@ -35,7 +35,7 @@ build/test_bounding.out: tests/test_bounding_rect.cpp build/Rect.o
 
 
 build/leaks.out: src/Rect.cpp src/Barrel.cpp src/Matrix.cpp src/My_string.cpp src/Text_wrapper.cpp src/lab1.cpp
-	g++ -g -fsanitize=address -fno-omit-frame-pointer -o build/leaks.out src/lab1.cpp src/Rect.cpp src/Barrel.cpp src/Matrix.cpp src/My_string.cpp src/Text_wrapper.cpp
+	clang++ -g -fsanitize=address -fno-omit-frame-pointer -o build/leaks.out src/lab1.cpp src/Rect.cpp src/Barrel.cpp src/Matrix.cpp src/My_string.cpp src/Text_wrapper.cpp
 
 leaks: build/leaks.out
 	./build/leaks.out < input.txt

@@ -5,9 +5,10 @@ class Rect
 {
 private:
 
-int l,r;
-int t,b;
-
+//int l,r;
+//int t,b;
+int l,b;
+int w,h;
 
 public:
 //constructors and destructor
